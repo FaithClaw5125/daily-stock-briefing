@@ -39,7 +39,7 @@ SMTP_PORT     = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER     = os.environ.get("SMTP_USER", "")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 
-PORTFOLIO = ["XLI", "AEXA", "GOOGL", "QBTS", "PLTR", "TSLA", "NVDA", "UNH", "CRWD", "AMZN", "MSFT", "ZS", "DELL"]
+PORTFOLIO = [t.strip().upper() for t in os.environ.get("PORTFOLIO_TICKERS", "").split(",") if t.strip()]
 
 FUTURES_TICKERS = {
     "S&P 500 Futures":  "ES=F",
